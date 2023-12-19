@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from airflow import DAG
-from airflow.operators.sensors.http_sensor import HttpSensor
+#from airflow.operators.sensors.http_sensor import HttpSensor
+from airflow.sensors.http_sensor import HttpSensor
 from airflow.operators.dummy_operator import DummyOperator
 
 default_args = {
