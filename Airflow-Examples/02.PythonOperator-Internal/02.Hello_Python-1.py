@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 
-def print_hello():
-    print("Hello, World!")
+def print_welcome():
+    print("welcome, Internal Python Function called in DAG Airflow!")
 
 default_args = {
     'owner': 'airflow',
@@ -13,7 +13,7 @@ default_args = {
 }
 
 dag = DAG(
-    'hello_world_dag',
+    'python_internal_dag',
     default_args=default_args,
     description='A simple DAG to print Hello, World!',
     schedule_interval=timedelta(days=1),  # Set the schedule interval as needed
@@ -21,7 +21,7 @@ dag = DAG(
 
 hello_task = PythonOperator(
     task_id='hello_task',
-    python_callable=print_hello,
+    python_callable=print_welcome,
     dag=dag,
 )
 

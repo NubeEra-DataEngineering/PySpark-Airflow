@@ -10,7 +10,7 @@ default_args = {
 }
 
 dag = DAG(
-    'batch_operator_dag',
+    'bash_operator_batch_dag',
     default_args=default_args,
     description='DAG to demonstrate BatchOperator',
     schedule_interval=timedelta(days=1),
